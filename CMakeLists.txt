@@ -16,7 +16,7 @@ cmake_minimum_required ( VERSION 2.8.12 )
 
 # project
 project ( external_libpng CXX C )
-set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.6.21.0 )
+set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.5.13-1 )
 set ( ${PROJECT_NAME}_DESCRIPTION "libpng library build for Staticlibs" )
 set ( ${PROJECT_NAME}_URL https://github.com/staticlibs/external_libpng )
 
@@ -26,14 +26,14 @@ if ( NOT DEFINED CMAKE_LIBRARY_OUTPUT_DIRECTORY )
 endif ( )
 
 # library
-add_subdirectory ( ${CMAKE_CURRENT_LIST_DIR}/resources/libpng_1621_cmake ${CMAKE_CURRENT_BINARY_DIR}/libpng )
+add_subdirectory ( ${CMAKE_CURRENT_LIST_DIR}/resources/libpng_1513_cmake ${CMAKE_CURRENT_BINARY_DIR}/libpng )
 add_custom_target ( ${PROJECT_NAME} DEPENDS png )
 
 # pkg-config
 set ( ${PROJECT_NAME}_MODULE libpng )
 set ( ${PROJECT_NAME}_PC_REQUIRES "zlib" )
 set ( ${PROJECT_NAME}_PC_CFLAGS                              "-I${CMAKE_CURRENT_LIST_DIR}/libpng" )
-set ( ${PROJECT_NAME}_PC_CFLAGS "${${PROJECT_NAME}_PC_CFLAGS} -I${CMAKE_CURRENT_LIST_DIR}/resources/libpng_1621_cmake/include" )
+set ( ${PROJECT_NAME}_PC_CFLAGS "${${PROJECT_NAME}_PC_CFLAGS} -I${CMAKE_CURRENT_LIST_DIR}/resources/libpng_1513_cmake/include" )
 set ( ${PROJECT_NAME}_PC_LIBS "-L${CMAKE_LIBRARY_OUTPUT_DIRECTORY} -lpng" )
 if ( UNIX AND ${CMAKE_CXX_COMPILER_ID} MATCHES "(GNU|Clang)" )
     set ( ${PROJECT_NAME}_PC_LIBS "${${PROJECT_NAME}_PC_LIBS} -lm" )

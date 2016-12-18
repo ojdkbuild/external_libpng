@@ -5,7 +5,8 @@ This project is a part of [Staticlibs](http://staticlibs.net/).
 
 This project contains a CMake build file for building the [libpng](http://www.libpng.org/pub/png/libpng.html) library.
 
-[GitHub mirror](https://github.com/glennrp/libpng) of libpng repository is used as a git submodule of this project. libpng is pinned to version 1.6.21.
+[FreeType sources imported from CentOS lookaside](https://github.com/ojdkbuild/lookaside_libpng.git)
+are used as a submodule of this project.
 
 How to build
 ------------
@@ -33,6 +34,11 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 
 Changelog
 ---------
+
+**2016-12-18**
+
+ * version 1.5.13-1
+ * lookaside build
 
 **2016-02-22**
 
