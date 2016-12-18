@@ -5,7 +5,7 @@ This project is a part of [Staticlibs](http://staticlibs.net/).
 
 This project contains a CMake build file for building the [libpng](http://www.libpng.org/pub/png/libpng.html) library.
 
-[FreeType sources imported from CentOS lookaside](https://github.com/ojdkbuild/lookaside_libpng.git)
+[libpng sources imported from CentOS lookaside](https://github.com/ojdkbuild/lookaside_libpng.git)
 are used as a submodule of this project.
 
 How to build
