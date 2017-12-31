@@ -1,6 +1,9 @@
 libpng library build for Staticlibs
 ===================================
 
+[![travis](https://travis-ci.org/staticlibs/external_libpng.svg?branch=master)](https://travis-ci.org/staticlibs/external_libpng)
+[![appveyor](https://ci.appveyor.com/api/projects/status/github/staticlibs/external_libpng?svg=true)](https://ci.appveyor.com/project/staticlibs/external-libpng)
+
 This project is a part of [Staticlibs](http://staticlibs.net/).
 
 This project contains a CMake build file for building the [libpng](http://www.libpng.org/pub/png/libpng.html) library.
@@ -34,6 +37,10 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 
 Changelog
 ---------
+
+**2017-12-31**
+ * version 1.5.13-2
+ * vs2017 support
 
 **2016-12-18**
 
