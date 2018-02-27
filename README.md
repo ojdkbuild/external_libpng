@@ -6,10 +6,8 @@ libpng library build for Staticlibs
 
 This project is a part of [Staticlibs](http://staticlibs.net/).
 
-This project contains a CMake build file for building the [libpng](http://www.libpng.org/pub/png/libpng.html) library.
-
-[libpng sources imported from CentOS lookaside](https://github.com/ojdkbuild/lookaside_libpng.git)
-are used as a submodule of this project.
+This project contains a CMake build file for building the [libpng](http://www.libpng.org/pub/png/libpng.html) library that
+can be used to build sources imported from [CentOS lookaside](https://github.com/staticlibs/lookaside_libpng.git).
 
 How to build
 ------------
@@ -37,6 +35,10 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 
 Changelog
 ---------
+
+**2018-02-28**
+ * version 1.5.13-3
+ * drop submodule
 
 **2017-12-31**
  * version 1.5.13-2

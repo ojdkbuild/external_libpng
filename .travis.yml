@@ -59,12 +59,13 @@ install:
     fi
 
 before_script:
-  - git submodule update --init --recursive
   - cd ..
 # mac and android
-  - git clone --recursive https://github.com/staticlibs/external_zlib.git
+  - git clone https://github.com/staticlibs/external_zlib.git
+  - git clone https://github.com/staticlibs/lookaside_zlib.git
 # all platforms
   - git clone https://github.com/staticlibs/cmake.git
+  - git clone https://github.com/staticlibs/lookaside_libpng.git
 
 script:
   - set -e

@@ -1,4 +1,4 @@
-# Copyright 2015, alex at staticlibs.net
+# Copyright 2016, akashche at redhat.com
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,7 +16,14 @@
 cmake_minimum_required ( VERSION 2.8.12 )
 project ( png C )
 include ( ${CMAKE_CURRENT_LIST_DIR}/../macros.cmake )
-set ( ${PROJECT_NAME}_SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/../../libpng )
+
+if ( NOT DEFINED ${PROJECT_NAME}_LOOKASIDE_DIR )
+    set ( ${PROJECT_NAME}_LOOKASIDE_DIR ${CMAKE_CURRENT_LIST_DIR}/../../../lookaside_libpng  CACHE INTERNAL "" )
+endif ( )
+
+# dependencies
+set ( ${PROJECT_NAME}_DEPS zlib )
+png_pkg_check_modules ( ${PROJECT_NAME}_DEPS_PC REQUIRED ${PROJECT_NAME}_DEPS )
 
 # check deplibs cache
 if ( STATICLIB_USE_DEPLIBS_CACHE )
@@ -29,41 +36,38 @@ if ( STATICLIB_USE_DEPLIBS_CACHE )
     endif ( )
 endif ( )
 
-# dependencies
-set ( ${PROJECT_NAME}_DEPS zlib )
-png_pkg_check_modules ( ${PROJECT_NAME}_DEPS_PC REQUIRED ${PROJECT_NAME}_DEPS )
-
+# library
 set ( ${PROJECT_NAME}_HEADERS
-        ${${PROJECT_NAME}_SOURCE_DIR}/png.h
-        ${${PROJECT_NAME}_SOURCE_DIR}/pngconf.h
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/png.h
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/pngconf.h
         ${CMAKE_CURRENT_LIST_DIR}/include/pnglibconf.h )
 set ( ${PROJECT_NAME}_SRC
-        ${${PROJECT_NAME}_SOURCE_DIR}/pngdebug.h
-        ${${PROJECT_NAME}_SOURCE_DIR}/pnginfo.h
-        ${${PROJECT_NAME}_SOURCE_DIR}/pngpriv.h
-        ${${PROJECT_NAME}_SOURCE_DIR}/pngstruct.h
-        ${${PROJECT_NAME}_SOURCE_DIR}/png.c
-        ${${PROJECT_NAME}_SOURCE_DIR}/pngerror.c
-        ${${PROJECT_NAME}_SOURCE_DIR}/pngget.c
-        ${${PROJECT_NAME}_SOURCE_DIR}/pngmem.c
-        ${${PROJECT_NAME}_SOURCE_DIR}/pngpread.c
-        ${${PROJECT_NAME}_SOURCE_DIR}/pngread.c
-        ${${PROJECT_NAME}_SOURCE_DIR}/pngrio.c
-        ${${PROJECT_NAME}_SOURCE_DIR}/pngrtran.c
-        ${${PROJECT_NAME}_SOURCE_DIR}/pngrutil.c
-        ${${PROJECT_NAME}_SOURCE_DIR}/pngset.c
-        ${${PROJECT_NAME}_SOURCE_DIR}/pngtrans.c
-        ${${PROJECT_NAME}_SOURCE_DIR}/pngwio.c
-        ${${PROJECT_NAME}_SOURCE_DIR}/pngwrite.c
-        ${${PROJECT_NAME}_SOURCE_DIR}/pngwtran.c
-        ${${PROJECT_NAME}_SOURCE_DIR}/pngwutil.c )
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/pngdebug.h
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/pnginfo.h
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/pngpriv.h
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/pngstruct.h
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/png.c
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/pngerror.c
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/pngget.c
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/pngmem.c
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/pngpread.c
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/pngread.c
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/pngrio.c
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/pngrtran.c
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/pngrutil.c
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/pngset.c
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/pngtrans.c
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/pngwio.c
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/pngwrite.c
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/pngwtran.c
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}/pngwutil.c )
 
 add_library ( ${PROJECT_NAME} STATIC ${${PROJECT_NAME}_SRC} ${${PROJECT_NAME}_HEADERS} )
 target_include_directories ( ${PROJECT_NAME} BEFORE PRIVATE 
-        ${PROJECT_NAME}_SOURCE_DIR
+        ${${PROJECT_NAME}_LOOKASIDE_DIR}
         ${CMAKE_CURRENT_LIST_DIR}/include
         ${${PROJECT_NAME}_DEPS_PC_INCLUDE_DIRS} )
 
-if ( ${CMAKE_CXX_COMPILER_ID}x MATCHES "MSVCx" )
+if ( ${CMAKE_C_COMPILER_ID}x MATCHES "MSVCx" )
     target_compile_definitions ( ${PROJECT_NAME} PRIVATE -D_CRT_SECURE_NO_DEPRECATE )
 endif ( )
