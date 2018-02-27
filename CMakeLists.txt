@@ -39,7 +39,7 @@ add_custom_target ( ${PROJECT_NAME} DEPENDS png )
 # pkg-config
 set ( ${PROJECT_NAME}_MODULE libpng )
 set ( ${PROJECT_NAME}_PC_REQUIRES "zlib" )
-set ( ${PROJECT_NAME}_PC_CFLAGS                              "-I${libpng_LOOKASIDE_DIR}" )
+set ( ${PROJECT_NAME}_PC_CFLAGS                              "-I${png_LOOKASIDE_DIR}" )
 set ( ${PROJECT_NAME}_PC_CFLAGS "${${PROJECT_NAME}_PC_CFLAGS} -I${CMAKE_CURRENT_LIST_DIR}/resources/libpng_cmake/include" )
 set ( ${PROJECT_NAME}_PC_LIBS "-L${CMAKE_LIBRARY_OUTPUT_DIRECTORY} -lpng" )
 if ( UNIX AND ${CMAKE_CXX_COMPILER_ID} MATCHES "(GNU|Clang)" )
