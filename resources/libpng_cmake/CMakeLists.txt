@@ -70,4 +70,8 @@ target_include_directories ( ${PROJECT_NAME} BEFORE PRIVATE
 
 if ( ${CMAKE_C_COMPILER_ID}x MATCHES "MSVCx" )
     target_compile_definitions ( ${PROJECT_NAME} PRIVATE -D_CRT_SECURE_NO_DEPRECATE )
+    if ( DEFINED ${PROJECT_NAME}_MSVC_ALT_CRUNTIME )
+        target_compile_options ( ${PROJECT_NAME} PRIVATE
+                ${${PROJECT_NAME}_MSVC_ALT_CRUNTIME} )
+    endif ( )
 endif ( )
