@@ -16,7 +16,7 @@ cmake_minimum_required ( VERSION 2.8.12 )
 
 # project
 project ( external_libpng CXX C )
-set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.5.13-4 )
+set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.5.13-5 )
 set ( ${PROJECT_NAME}_DESCRIPTION "libpng library build for Staticlibs" )
 set ( ${PROJECT_NAME}_URL https://github.com/staticlibs/external_libpng )
 include ( ${CMAKE_CURRENT_LIST_DIR}/resources/macros.cmake )
@@ -38,7 +38,9 @@ add_custom_target ( ${PROJECT_NAME} DEPENDS png )
 
 # pkg-config
 set ( ${PROJECT_NAME}_MODULE libpng )
-set ( ${PROJECT_NAME}_PC_REQUIRES "zlib" )
+if ( NOT DEFINED z_MSVC_ALT_CRUNTIME )
+    set ( ${PROJECT_NAME}_PC_REQUIRES "zlib" )
+endif ( )
 set ( ${PROJECT_NAME}_PC_CFLAGS                              "-I${png_LOOKASIDE_DIR}" )
 set ( ${PROJECT_NAME}_PC_CFLAGS "${${PROJECT_NAME}_PC_CFLAGS} -I${CMAKE_CURRENT_LIST_DIR}/resources/libpng_cmake/include" )
 set ( ${PROJECT_NAME}_PC_LIBS "-L${CMAKE_LIBRARY_OUTPUT_DIRECTORY} -lpng" )

@@ -36,6 +36,11 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 Changelog
 ---------
 
+**2019-12-03**
+
+ * version 1.5.13-5
+ * zlib dep fix with alt C runtime
+
 **2019-12-02**
 
  * version 1.5.13-4
