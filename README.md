@@ -18,7 +18,11 @@ To build the library on Windows using Visual Studio 2013 Express run the followi
 Visual Studio development command prompt 
 (`C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\Tools\Shortcuts\VS2013 x86 Native Tools Command Prompt`):
 
-    git clone --recursive https://github.com/staticlibs/external_libpng.git
+    git clone https://github.com/staticlibs/cmake.git
+    git clone https://github.com/staticlibs/lookaside_zlib.git
+    git clone https://github.com/staticlibs/external_zlib.git
+    git clone https://github.com/staticlibs/lookaside_libpng.git
+    git clone https://github.com/staticlibs/external_libpng.git
     cd external_libpng
     mkdir build
     cd build
@@ -35,6 +39,11 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 
 Changelog
 ---------
+
+**2020-10-01**
+
+ * version 1.5.13-6
+ * apply CVE patch
 
 **2019-12-03**
 

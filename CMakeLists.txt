@@ -16,7 +16,7 @@ cmake_minimum_required ( VERSION 2.8.12 )
 
 # project
 project ( external_libpng CXX C )
-set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.5.13-5 )
+set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.5.13-6 )
 set ( ${PROJECT_NAME}_DESCRIPTION "libpng library build for Staticlibs" )
 set ( ${PROJECT_NAME}_URL https://github.com/staticlibs/external_libpng )
 include ( ${CMAKE_CURRENT_LIST_DIR}/resources/macros.cmake )

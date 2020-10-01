@@ -1,1 +1,1 @@
-https://github.com/repositories/transfers/0090eba5234e63b889c6ce1c74c5d64d25fa7c7066f3964b92ce5a97253c82a26964ce000296a7a36f6964ce011189b9
+https://github.com/staticlibs/lookaside_libpng/tree/fb1a1ef15cee3198fd0aeca68cbf44d5cd2a1694
