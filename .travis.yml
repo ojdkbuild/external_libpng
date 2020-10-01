@@ -108,7 +108,7 @@ script:
     $D make ;
     $D sh -c "rm -rf /root && mkdir /root" ;
     $D cmake /src/external_libpng/test -DCMAKE_BUILD_TYPE=Release ;
-    $D make all test ;
+    $D make all ;
 
     `# Android` ;
     mkdir build-android ;
